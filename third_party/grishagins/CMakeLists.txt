@@ -1,0 +1,16 @@
+set(GRISHAGINS_INC ${CMAKE_CURRENT_SOURCE_DIR})
+set(GRISHAGINS_DIR ${CMAKE_CURRENT_SOURCE_DIR}/grishagins)
+
+file(GLOB GRISHAGINS_SRC ${GRISHAGINS_DIR}/*.cpp)
+add_library(grishagins ${GRISHAGINS_SRC})
+
+target_include_directories(grishagins
+  PRIVATE
+  "${GRISHAGINS_INC}"
+)
+
+set_target_properties(grishagins
+  PROPERTIES
+  INTERFACE_INCLUDE_DIRECTORIES "${GRISHAGINS_INC}"
+  POSITION_INDEPENDENT_CODE ON
+)
